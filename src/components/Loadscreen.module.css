@@ -1,0 +1,29 @@
+.loadmain{
+    position: relative;
+    z-index: 999;
+    width: 100vw;
+    width: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    /* need to disable touch */
+}
+
+.loadmain__title{
+    font-size: 8vw;
+}
+
+
+@media (orientation: portrait) {
+    .loadmain{        
+        width: 100vh;
+        width: 100vw;       
+    }
+
+    .loadmain__title{
+
+        font-size: 8vh;
+    }
+}

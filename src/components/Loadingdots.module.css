@@ -1,0 +1,67 @@
+.dots{
+    position: absolute;
+    display: flex;
+    flex-direction: row;    
+    transition-duration: 1s;     
+}
+
+
+
+@keyframes scaling {
+    0%,
+    100% {
+        transform: scale(0.2);
+        background-color: rgb(248, 248, 248);
+    }
+
+    40% {
+        transform: scale(1);
+       /* background-color: #07DEFF;*/
+    }
+
+    50% {
+        transform: scale(1);
+        background-color: var(--border-color);
+    }
+}
+
+.dot {    
+    height: 4vw;
+    width: 4vw;
+    border-radius: 50%;
+    transform: scale(0);
+    /*background-color: var(--border-color);*/
+    animation: scaling 3s ease-in-out infinite;    
+    margin: .8vw;
+}
+
+.dot1 {
+    animation-delay: 0s;
+}
+
+.dot2 {
+    animation-delay: .6s;
+}
+
+.dot3 {
+    animation-delay: 1.2s;
+}
+
+.dot4 {
+    animation-delay: 1.8s;
+}
+
+.dot5 {
+    animation-delay: 2.4s;
+}
+
+.fadein {
+    opacity: 1;
+    transition-duration: 1s;       
+ }
+ 
+ .fadeout {
+    opacity: 0;    
+    transition-duration: 1s;
+ }
+ 

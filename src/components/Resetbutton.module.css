@@ -1,0 +1,52 @@
+.resbutton{    
+    position: absolute;
+    z-index: 100;
+    top: 2vw;
+    left: 90vw;
+    width: 6vw;
+    height: 6vw;    
+    transition-duration: 1s;    
+}
+
+
+
+.resbutton__button{       
+    width: 100%;
+    height: 100%;   
+    border-radius: 1vw;
+    box-shadow: 0 1px 6px 0 #e7e7e7;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;  
+    transition-duration: .3s;
+}
+
+.resbutton__button:active{
+    transition-duration: .3s;
+    width: 90%;
+    height: 90%;
+}
+
+
+
+.fadein {
+    opacity: 1;
+    transition-duration: 1s;       
+ }
+ 
+ .fadeout {
+    opacity: 0;    
+    transition-duration: 1s;
+ }
+
+
+ @media (orientation: portrait) {
+    .resbutton{          
+        top: 2vh;
+        left: 90vh;
+        width: 6vh;
+        height: 6vh;        
+    }
+
+ }
