@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/Haiku/static/css/main.3bf41bbf.css",
+    "main.js": "/Haiku/static/js/main.3ca8e8a5.js",
+    "static/media/noise.png": "/Haiku/static/media/noise.bd1c2fb4fb757dcbd0e8.png",
+    "index.html": "/Haiku/index.html",
+    "main.3bf41bbf.css.map": "/Haiku/static/css/main.3bf41bbf.css.map",
+    "main.3ca8e8a5.js.map": "/Haiku/static/js/main.3ca8e8a5.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.3bf41bbf.css",
+    "static/js/main.3ca8e8a5.js"
+  ]
+}
