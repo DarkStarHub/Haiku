@@ -24,6 +24,7 @@ function Haiku(props){
     }
 
     
+    
     function getHaiku()
     {
         if (!props.incdata) return;                  
@@ -55,7 +56,12 @@ function Haiku(props){
 
     function capitalizeFirstLetter(str) {
         return str.split(" ").map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(" ");
-      }
+    }
+
+    function lowercaseFirstLetter(str) {
+        return str.split(" ").map(word => word.charAt(0).toLowerCase() + word.slice(1)).join(" ");
+    }
+
 
     
     // check to make sure temp data is there.. and capitalize the city
@@ -63,7 +69,7 @@ function Haiku(props){
         if(!curHaiku)
         {
             return;
-        }
+        }        
         const arrayOfLines = curHaiku.split('\n');        
         return(
             <div className={styles.card__lines}>
@@ -71,7 +77,10 @@ function Haiku(props){
                 <div>{arrayOfLines[1]}</div>
                 <div>{arrayOfLines[2]}</div>
                 
-                <div>-{capitalizeFirstLetter(props.incdata.address)} {props.incdata.currentConditions.temp? props.incdata.currentConditions.temp+"f" :''}</div>
+                <div className={styles.caption}>
+                    
+                    -{capitalizeFirstLetter(props.incdata.address)+","} {props.incdata.currentConditions.temp? props.incdata.currentConditions.temp+"f" :''}
+                    </div>
             </div>            
         )
     }
@@ -83,6 +92,9 @@ function Haiku(props){
     },[props.incdata])
   
    
+       
+
+
 
     return(
         <div className={props.dstate ==='3'? `${styles.card } ${styles.fadein}` : `${styles.card} ${styles.fadeout}`}>
@@ -92,3 +104,5 @@ function Haiku(props){
 }
 
 export default Haiku
+
+/*-{capitalizeFirstLetter(props.incdata.address)+","} {props.incdata.currentConditions.temp? props.incdata.currentConditions.temp+"f"+", "+lowercaseFirstLetter(props.incdata.currentConditions.conditions) :''}*/

@@ -46,21 +46,26 @@ function Search(props) {
        
 
     return (
-        <div className={props.dstate === '4'? `${styles.searchbox} ${styles.enterfirst}`: props.dstate === "1"? `${styles.searchbox} ${styles.enter}` : `${styles.searchbox } ${styles.fadeout}`}>
-            <input
-                className={styles.searchbox__searchimp}
-                type="text"
-                placeholder="Where do you dream of..."
-                value={curLoc}
-                onChange={(e) => handleInputChange(e.target.value)}
-                onKeyDown={submitSearch} 
-                spellCheck="false"/>
-            <div className={styles.searchbox__searchbutton}>
-                <div className={styles.searchbox__searchbutton__button}                               
-                    onClick={submitSearch}>
-                      {searchIco()}      
+        <div className={props.dstate === '4' ? `${styles.main} ${styles.fadeinfirst}` : props.dstate === "1" ? `${styles.main} ${styles.fadein}` : `${styles.main} ${styles.fadeout}`}>
+            <div className={styles.caption}>
+                ...any location, any place, get the weather as a Haiku
+            </div>
+            <div className={props.dstate === '4' ? `${styles.searchbox} ${styles.enterfirst}` : props.dstate === "1" ? `${styles.searchbox} ${styles.enter}` : `${styles.searchbox} ${styles.fadeout}`}>
+                <input
+                    className={styles.searchbox__searchimp}
+                    type="text"
+                    placeholder="enter a location for a verse..."
+                    value={curLoc}
+                    onChange={(e) => handleInputChange(e.target.value)}
+                    onKeyDown={submitSearch}
+                    spellCheck="false" />
+                <div className={styles.searchbox__searchbutton}>
+                    <div className={styles.searchbox__searchbutton__button}
+                        onClick={submitSearch}>
+                        {searchIco()}
+                    </div>
                 </div>
-            </div> 
+            </div>
         </div>
     );
 }

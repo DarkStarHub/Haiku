@@ -19,7 +19,7 @@
   justify-content: center;  
 }
 
-
+/*
 @media (orientation: portrait) {
  .mainpage__content{
   width: 100vh;
@@ -27,4 +27,4 @@
   transform-origin:center;
   transform: rotate(90deg);  
  }
-}
+}*/

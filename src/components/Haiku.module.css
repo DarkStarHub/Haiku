@@ -13,19 +13,34 @@
 
 
 .card{   
-   z-index: 50;
-   font-size: 5vw;  
-   animation: swell 30s 1s forwards; 
-}
-/*  54 vh on mobile portrait is good */
-
-.card__lines{
+   position: absolute;
+   width: 90%;
+   height: 100%;
    display: flex;
    flex-direction: column;
    align-items: center;
+   justify-content: center;
+   z-index: 50;   
+   /*animation: swell 30s 1s forwards; */
+}
+
+
+.card__lines{
+   position: relative;   
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   font-size: 5vw;  
+   font-weight: 700;
    /*text-shadow: 5px 10px 10px rgba(0, 0, 0, 0.25),
               -3px 10px 12px rgba(0, 0, 0, 0.25);*/   
                 
+}
+
+.caption{
+   margin-top: 4vh;
+   font-size: 4vw;
+   font-weight: 300;
 }
 
 
@@ -51,7 +66,14 @@
 /* need media queries */
 
 @media (orientation: portrait) {
-   .card{         
-      font-size: 5vh;   
+   .card{
+      justify-content: flex-start;
+   }
+   .card__lines{         
+      font-size: 5vw; 
+      margin-top: 33vh;
+   }
+   .caption{
+      font-size: 6vw;
    }
   }
