@@ -7,7 +7,7 @@ import Haiku from './components/haiku';
 import Resetbutton from './components/resetbutton';
 import Loadingdots from './components/loadingdots';
 import Loadscreen from './components/loadscreen';
-import Noise from './components/noise';
+
 
 
 
@@ -15,9 +15,11 @@ function App() {
 
   const [curWeatherLoc, setCurWeatherLoc] = useState();
   const [dupe,setDupe] = useState(0);
-  const [curLocData, setCurLocData] = useState(null);   
+  const [curLocData, setCurLocData] = useState(null);
+  const [curLoc,setCurLoc] = useState('');
   // 0: first load,1:searchbox,2:dots,3:haiku display,4:first searchbox
   const [displayState,setDisplayState] = useState("0");
+  const [searchPlaceholder,setSearchPlaceholder] = useState("enter a location for a verse...")
 
   /*
   function getLocationName() {
@@ -25,6 +27,11 @@ function App() {
   } */
 
   async function dataPrep(inc) {
+    if(inc === "not found"){
+      locNotFound();
+      setDisplayState('1');
+      return;
+    }
     try {
       if (inc instanceof Promise) {
         inc = await inc; // Resolve the promise if it's one
@@ -49,6 +56,29 @@ function App() {
     setCurWeatherLoc(inc);
   }  
 
+  function locNotFound() {
+    setSearchPlaceholder("location not found...");
+    const timerId = setTimeout(() => {
+      setSearchPlaceholder("enter a location for a verse...");
+    }, 1600);
+
+    // Cleanup the timer when the component is unmounted
+    return () => clearTimeout(timerId);
+  }
+
+  function searching(){
+    setSearchPlaceholder("searching...")
+    setCurLoc("");
+
+    const timerId = setTimeout(() => {
+      setSearchPlaceholder("enter a location for a verse...");
+          }, 1600);
+
+    // Cleanup the timer when the component is unmounted
+    return () => clearTimeout(timerId);
+  }
+
+ 
 
   useEffect(() => {  
     if(!curWeatherLoc) {
@@ -67,7 +97,11 @@ function App() {
           cb={setDisplayState}>            
         </Haiku>
         <Search
-          //onSearchChange={setCurWeatherLoc} 
+          //onSearchChange={setCurWeatherLoc}
+          setsearching={searching} 
+          setloc={setCurLoc}         
+          loc={curLoc}
+          placeholder={searchPlaceholder}
           onSearchChange={locCheck}     
           dstate={displayState}>
         </Search>
@@ -80,7 +114,7 @@ function App() {
         </Loadingdots>
         {displayState==='0' && <Loadscreen
           changestate={setDisplayState}>
-        </Loadscreen>}        
+        </Loadscreen>}              
       </div>           
     </div>
   );

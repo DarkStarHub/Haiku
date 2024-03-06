@@ -1,20 +1,20 @@
 import React from 'react';
-import { useState} from "react";
+//import { useState} from "react";
 import styles from './Search.module.css'; 
 
 
 
 function Search(props) {
 
-    const [curLoc, setCurLoc] = useState('');    
-    
+    //const [curLoc, setCurLoc] = useState('');       
     
         
     const handleInputChange = (newLoc) => {
-        setCurLoc(newLoc);
+        props.setloc(newLoc);
+        //setCurLoc(newLoc);
     };
 
-      
+    
     
 
     const submitSearch = (event) => {            
@@ -23,15 +23,17 @@ function Search(props) {
             return;
         }           
         if (event.key === "Enter" || event.type === "click") {           
-            const searchValue = curLoc || '90027';            
+            const searchValue = props.loc || '90027';            
             props.onSearchChange(searchValue); 
-                        
+            props.setsearching();
+            /*
             const timerId = setTimeout(() => {
-                setCurLoc("");
+                props.setloc("");
+                //setCurLoc("");
             }, 1600);
     
             // Cleanup the timer when the component is unmounted
-            return () => clearTimeout(timerId);     
+            return () => clearTimeout(timerId);*/     
         }
     };
 
@@ -51,11 +53,11 @@ function Search(props) {
                 ...any location, any place, get the weather as a Haiku
             </div>
             <div className={props.dstate === '4' ? `${styles.searchbox} ${styles.enterfirst}` : props.dstate === "1" ? `${styles.searchbox} ${styles.enter}` : `${styles.searchbox} ${styles.fadeout}`}>
-                <input
+                <input                    
                     className={styles.searchbox__searchimp}
                     type="text"
-                    placeholder="enter a location for a verse..."
-                    value={curLoc}
+                    placeholder={props.placeholder}
+                    value={props.loc}
                     onChange={(e) => handleInputChange(e.target.value)}
                     onKeyDown={submitSearch}
                     spellCheck="false" />

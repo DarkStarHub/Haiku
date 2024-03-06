@@ -83,12 +83,12 @@
 .searchbox__searchbutton__button{     
     width: 90%;  
     height: 90%;  
-    transition-duration: .3s;
+    transition-duration: .1s;
     /*background-color: rgb(218, 218, 218);*/
 }
 
 .searchbox__searchbutton__button:active {
-    transition-duration: .3s;
+    transition-duration: .1s;
     width: 70%;
 }
 
@@ -118,7 +118,7 @@ input:focus {
    /* transition-duration: 1s; 
     transition-delay: 1s;
     opacity: 1;*/
-    animation: bounce 1s ease-out 1s forwards;  
+    animation: bounce 1s ease-out forwards;  
 }
 
 
@@ -143,7 +143,7 @@ input:focus {
     }
 
     input[type=text]{
-        padding-left: 13vw;
+        padding-left: 11.6vw;
         font-size: 5.4vw;
     }    
 }

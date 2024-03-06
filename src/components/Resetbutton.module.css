@@ -19,11 +19,11 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;  
-    transition-duration: .3s;
+    transition-duration: .1s;
 }
 
 .resbutton__button:active{
-    transition-duration: .3s;
+    transition-duration: .1s;
     width: 90%;
     height: 90%;    
 }

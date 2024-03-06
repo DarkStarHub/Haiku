@@ -2,21 +2,35 @@ import styles from './Resetbutton.module.css';
 
 // maybe a bool to prevent reclicking
 
-function Resetbutton(props){
+function Resetbutton(props){   
+    
+    const handleClick = (event) => {
+        props.reset('1');
+        if(props.dstate==="3")
+        {
+             //need to prevent more clicks                
+            //console.log("click");                    
+        }  
+      };
 
+
+      /*
     function resetSearch(){
         props.reset('1');
         if(props.dstate==="3")
         {
-          console.log("click");  
-        }
-        
-    }
+             //need to prevent more clicks                
+            console.log("click");                    
+        }        
+    }*/
 
 
     return(
         <div className={props.dstate === '3' ? styles.resbutton : `${styles.resbutton} ${styles.fadeout}`}>
-            <div className={styles.resbutton__button} onClick={resetSearch}>
+            <div className={styles.resbutton__button}             
+             onMouseDown={handleClick} 
+             onTouchStart={handleClick}
+             >
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" style={{ width: '86%', height: '86%' }} fill="#c2c2c2">
                     <path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z" />
                 </svg>
